@@ -3,7 +3,7 @@ import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl"; // set backend to webgl
 import Loader from "./components/loader";
 import ButtonHandler from "./components/btn-handler";
-import { detectImage, detectVideo } from "./utils/detect";
+import { detect, detectVideo } from "./utils/detect";
 import "./style/App.css";
 
 const App = () => {
@@ -64,7 +64,7 @@ const App = () => {
         <img
           src="#"
           ref={imageRef}
-          onLoad={() => detectImage(imageRef.current, model, canvasRef.current)}
+          onLoad={() => detect(imageRef.current, model, canvasRef.current)}
         />
         <video
           autoPlay
