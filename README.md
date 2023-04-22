@@ -62,6 +62,10 @@ Use another YOLOv8 model.
    ```
 4. Done! 😊
 
+**Note: Custom Trained YOLOv8 Models**
+
+Please update `src/utils/labels.json` with your new classes.
+
 ## Reference
 
 - https://github.com/ultralytics/ultralytics
