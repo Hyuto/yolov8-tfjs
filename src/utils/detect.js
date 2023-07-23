@@ -72,7 +72,8 @@ export const detect = async (source, model, canvasRef, callback = () => {}) => {
   }); // process boxes [y1, x1, y2, x2]
 
   const [scores, classes] = tf.tidy(() => {
-    const rawScores = transRes.slice([0, 0, 4], [-1, -1, numClass]).squeeze(); // class scores
+    // class scores
+    const rawScores = transRes.slice([0, 0, 4], [-1, -1, numClass]).squeeze(0); // #6 only squeeze axis 0 to handle only 1 class models
     return [rawScores.max(1), rawScores.argMax(1)];
   }); // get max scores and classes index
 
